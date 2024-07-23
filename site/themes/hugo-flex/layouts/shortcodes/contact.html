@@ -1,0 +1,32 @@
+{{ resources.Get "css/contact.css" | .Page.Scratch.SetInMap "css" "contact" }}
+
+<form class="Contact" name="contact" method="POST" data-netlify="true"{{ if site.Params.netlify.honeypot }} data-netlify-honeypot="bot"{{ end }}{{ if site.Params.netlify.recaptcha }} data-netlify-recaptcha="true"{{ end }}{{ with .Get 0 }} action="{{ . }}"{{ end }}>
+  <ul class="Contact-group">
+    {{ if site.Params.netlify.honeypot }}
+      <li class="Contact-hidden">
+        <label>Don’t fill this out if you're human:</label>
+        <input name="bot">
+      </li>
+    {{ end }}
+    <li class="Contact-item">
+      <label class="Contact-label" for="Contact-name">Name:</label>
+      <input class="Contact-input" id="Contact-name" type="text" name="name" autofocus>
+    </li>
+    <li class="Contact-item">
+      <label class="Contact-label" for="Contact-email">Email:</label>
+      <input class="Contact-input" id="Contact-email" type="email" name="email">
+    </li>
+    <li class="Contact-item">
+      <label class="Contact-label" for="Contact-subject">Subject:</label>
+      <input class="Contact-input" id="Contact-subject" type="text" name="subject">
+    </li>
+    <li class="Contact-item">
+      <label class="Contact-label" for="Contact-message">Message:</label>
+      <textarea class="Contact-input Contact-input--textbox" id="Contact-message" name="message"></textarea>
+    </li>
+    <li class="Contact-item">
+      <button class="Contact-button" type="submit">Send</button>
+    </li>
+  </ul>
+  {{ if site.Params.netlify.recaptcha }}<div data-netlify-recaptcha="true"></div>{{ end }}
+</form>

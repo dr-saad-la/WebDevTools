@@ -1,0 +1,88 @@
+baseURL: https://example.org/
+title: My New Hugo Site
+languageCode: en-us
+theme: hugo-flex
+
+params:
+  color: teal           # Any color in CSS syntax
+  width: 42rem          # Any length in CSS syntax / leave empty to span page
+  divider: \2500\2500   # Any string in CSS syntax / leave empty for no divider
+  footer: >-            # HTML spaces (&#32;) are needed before HTML elements
+    Except where otherwise noted, content on this site is licensed under a &#32;
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative
+    Commons Attribution 4.0 International License</a>.
+  rss: To subscribe to this RSS feed, copy its address and paste it into your
+    favorite feed reader.
+  favicon: false        # Set to true to add a link to the favicon.ico
+  noClasses: &nc false  # Set to true to use inline CSS for syntax highlighting
+  katex: 0.16.10        # KaTeX version / leave empty to use the latest version
+  headingoffset: 0      # Change heading levels when rendering markdown
+  linkicons: false      # Set to hover or true to add a link icon to headings
+  summaries: false      # Set to true to show summaries of posts on homepage
+  schema: false         # Set to true to add Schema.org metadata
+  opengraph: false      # Set to true to add Open Graph metadata
+  twittercards: false   # Set to true to add Twitter Cards metadata
+  utterances:
+    repo:               # Set to Utterances repo URL to add Utterances comments
+    issueterm:          # Leave empty for the default blog post to issue mapping
+    theme:              # Leave empty to use the adaptive Utterances dark theme
+  netlify:
+    honeypot: false     # Set to true to add honeypot field in contact form
+    recaptcha: false    # Set to true to add recaptcha challenge in contact form
+  math: &math false     # Set to true to render LaTeX without using shortcodes
+  mathdelim: &md
+    block:              # List of pairs of "display" math delimiters
+      - ['\[', '\]']
+      - ['$$', '$$']
+    inline:             # List of pairs of inline math delimiters
+      - ['\(', '\)']
+  # css:                # Uncomment to add custom CSS from the assets directory
+  #   - css/foo.css
+  #   - bar.css
+  # js:                 # Uncomment to add custom JS from the assets directory
+  #   - js/foo.js
+  #   - bar.js
+
+markup:
+  highlight:
+    noClasses: *nc      # Set to same value as params.noClasses
+  goldmark:
+    extensions:
+      passthrough:
+        enable: *math   # Set to the same value as params.math
+        delimiters: *md # Set to the same value as params.mathdelim
+
+menu:
+  main:
+    - name: About
+      pageRef: /about
+      weight: 1
+    - name: Posts
+      pageRef: /post
+      weight: 2
+    - name: Tags
+      pageRef: /tags
+      weight: 3
+    - name: Categories
+      pageRef: /categories
+      weight: 4
+    - name: RSS
+      pageRef: /
+      weight: 5
+      params:
+        - format: rss
+
+outputFormats:
+  rss:
+    mediatype: application/rss+xml
+    baseName: feed      # Rename RSS feed URL from rss.xml to feed.xml
+
+mediaTypes:
+  font/woff2:
+    suffixes:
+      - woff2
+
+module:
+  hugoVersion:
+    extended: false
+    min: 0.122.0

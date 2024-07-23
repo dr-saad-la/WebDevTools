@@ -1,0 +1,6 @@
+{{ $level := add .Level site.Params.headingoffset | math.Max 1 }}
+{{ $anchor := safeURL .Anchor }}
+
+<h{{ $level }} id="{{ $anchor }}">
+  <a class="Heading-link u-clickable" href="{{ .Page.RelPermalink }}#{{ $anchor }}">{{ safeHTML .Text }}</a>
+</h{{ $level }}>

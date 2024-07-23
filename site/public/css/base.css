@@ -1,0 +1,188 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 0.2rem;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+td, th {
+  border: 0.1rem solid gray;
+  padding: 0.3rem 0.5rem;
+}
+
+pre {
+  overflow-x: auto;
+  border: 0.1rem solid lightgray;
+  padding: 1rem;
+}
+
+code {
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+kbd {
+  border: 0.1rem solid darkgray;
+  border-radius: 0.2rem;
+  margin: 0.1rem;
+  padding: 0.15rem;
+}
+
+kbd:has(kbd) {
+  padding: 0.3rem 0;
+}
+
+.Banner {
+  list-style: none;
+  display: flex;
+  flex-flow: row-reverse wrap-reverse;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+  .Banner-item:nth-child(1) {
+    order: 5;
+  }
+
+
+
+  .Banner-item:nth-child(2) {
+    order: 4;
+  }
+
+
+
+  .Banner-item:nth-child(3) {
+    order: 3;
+  }
+
+
+
+  .Banner-item:nth-child(4) {
+    order: 2;
+  }
+
+
+
+  .Banner-item:nth-child(5) {
+    order: 1;
+  }
+
+
+
+.Banner-item--title {
+  flex-grow: 1;
+}
+
+.Banner-link {
+  font-size: 1.25rem;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.Heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.Heading-title {
+  margin: 1.5rem 0.5rem 0 0;
+}
+
+.Heading-link {
+  color: inherit;
+}
+
+
+
+.Tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.Tags-item {
+  border-radius: 0.2rem;
+  margin: 0.2rem;
+  padding: 0 0.3rem;
+}
+
+.Tags-link {
+  color: white;
+}
+
+
+
+  .Divider {
+    display: flex;
+    justify-content: center;
+  }
+
+  .Divider::after {
+    content: "\2500\2500";
+  }
+
+
+
+.Pagination {
+  font-size: 1.25rem;
+  color: inherit;
+}
+
+.Pagination--right {
+  float: right;
+}
+
+.Footer {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.u-wrapper {
+  max-width: 42rem;
+  margin: auto;
+}
+
+.u-padding {
+  padding: 0 1rem;
+}
+
+.u-background {
+  background: teal;
+}
+
+.u-clickable {
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.u-noboosting {
+  max-height: 1000000px;
+}

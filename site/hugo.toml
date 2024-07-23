@@ -1,0 +1,4 @@
+baseURL = 'www.example.com'
+languageCode = 'en-us'
+title = 'Web Development Tools Blog'
+theme = 'hugo-flex'

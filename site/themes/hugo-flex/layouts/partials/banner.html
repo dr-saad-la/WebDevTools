@@ -1,0 +1,21 @@
+<nav class="u-background">
+  <div class="u-wrapper">
+    <ul class="Banner">
+      <li class="Banner-item Banner-item--title">
+        <a class="Banner-link u-clickable" href="{{ relLangURL nil }}">{{ site.Title }}</a>
+      </li>
+      {{ range site.Menus.main }}
+        {{ $url := relLangURL .URL }}
+        {{ if and (isset .Params "format") .Page }}
+          {{ $format := .Page.OutputFormats.Get .Params.format }}
+          {{ if $format }}
+            {{ $url = $format.RelPermalink }}
+          {{ end }}
+        {{ end }}
+        <li class="Banner-item">
+          <a class="Banner-link u-clickable" href="{{ $url }}">{{ .Name }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</nav>

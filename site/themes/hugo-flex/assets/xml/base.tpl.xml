@@ -1,0 +1,71 @@
+{{ safeHTML `<?xml version="1.0" encoding="utf-8" ?>` }}
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="html" doctype-system="about:legacy-compat" />
+  <xsl:template match="/rss/channel">
+    <html lang="{{ site.LanguageCode }}">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="light dark" />
+        <title><xsl:value-of select="title" /></title>
+        {{ if site.Params.favicon }}
+          <link rel="icon" href="{{ absLangURL "favicon.ico" }}" type="image/x-icon" />
+        {{ end }}
+        {{ with (.Scratch.Get "css").base }}
+          {{ if eq hugo.Environment "development" }}
+            <link rel="stylesheet" href="{{ .Permalink }}" />
+          {{ else }}
+            {{ with . | minify | fingerprint }}
+              <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </head>
+      <body>
+        <nav class="u-background">
+          <div class="u-wrapper">
+            <ul class="Banner">
+              <li class="Banner-item Banner-item--title">
+                <a class="Banner-link u-clickable" href="{{ absLangURL nil }}">{{ site.Title }}</a>
+              </li>
+              {{ range site.Menus.main }}
+                {{ $url := absLangURL .URL }}
+                {{ if and (isset .Params "format") .Page }}
+                  {{ $format := .Page.OutputFormats.Get .Params.format }}
+                  {{ if $format }}
+                    {{ $url = $format.Permalink }}
+                  {{ end }}
+                {{ end }}
+                <li class="Banner-item">
+                  <a class="Banner-link u-clickable" href="{{ $url }}">{{ .Name }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        </nav>
+        <main>
+          <div class="u-wrapper">
+            <div class="u-padding">
+              <h1 class="Heading-title">
+                <a class="Heading-link u-clickable" href="{link}" rel="bookmark"><xsl:value-of select="title" /></a>
+              </h1>
+              {{ with site.Params.rss }}
+                <p>
+                  {{ safeHTML . }}
+                </p>
+              {{ end }}
+            </div>
+          </div>
+        </main>
+        {{ with site.Params.footer }}
+          <footer class="Footer">
+            <div class="u-wrapper">
+              <div class="u-padding u-noboosting">
+                {{ safeHTML . }}
+              </div>
+            </div>
+          </footer>
+        {{ end }}
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>

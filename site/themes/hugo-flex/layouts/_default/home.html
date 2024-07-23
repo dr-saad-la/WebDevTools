@@ -1,0 +1,64 @@
+{{ define "load_paginator" }}
+
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ with .Paginate $pages }}{{ end }}
+
+{{ end }}
+
+{{ define "load_page_assets" }}
+
+  {{ range .Paginator.Pages }}
+    {{ if .Params.math }}
+      {{ partial "math.html" . }}
+      {{ break }}
+    {{ end }}
+  {{ end }}
+
+  {{ range .Paginator.Pages }}
+    {{ with .Content }}{{ end }}
+    {{ $page_css := .Scratch.Get "css" }}
+    {{ with $page_css }}
+      {{ $css_list := $.Scratch.Get "css" }}
+      {{ merge $css_list . | $.Scratch.Set "css" }}
+    {{ end }}
+    {{ $page_js := .Scratch.Get "js" }}
+    {{ with $page_js }}
+      {{ $js_list := $.Scratch.Get "js" }}
+      {{ merge $js_list . | $.Scratch.Set "js" }}
+    {{ end }}
+  {{ end }}
+
+{{ end }}
+
+{{ define "main" }}
+
+  {{ if .Title }}
+    {{ partial "heading.html" . }}
+  {{ end }}
+
+  {{ .Content }}
+
+  {{ $length := len .Paginator.Pages }}
+  {{ range $index, $page := .Paginator.Pages }}
+    <article>
+      {{ partial "heading.html" . }}
+      {{ if site.Params.summaries }}
+        {{ .Summary }}
+        {{ if .Truncated }}
+          <p>
+            <a class="u-clickable" href="{{ .RelPermalink }}">Read More…</a>
+          </p>
+        {{ end }}
+      {{ else }}
+        {{ .Content }}
+      {{ end }}
+      {{ partial "tags.html" . }}
+    </article>
+    {{ if add $index 1 | ne $length | and site.Params.divider }}
+      <div class="Divider"></div>
+    {{ end }}
+  {{ end }}
+
+  {{ partial "pagination.html" . }}
+
+{{ end }}
