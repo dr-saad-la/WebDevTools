@@ -1,0 +1,8 @@
+<ul>
+  {{ range where .Site.Pages "Section" "posts" }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <p>{{ .Summary }}</p>
+    </li>
+  {{ end }}
+</ul>

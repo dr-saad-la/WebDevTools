@@ -46,6 +46,24 @@ theme = 'hugo-flex'
   [markup.highlight]
     noClasses = false
 
+      [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = false
+        blockDelimiters = [["\\[", "\\]"], ["$$", "$$"]]
+        inlineDelimiters = [["\\(", "\\)"]]
+
+    # [markup.goldmark]
+    # [markup.goldmark.extensions]
+    #   [markup.goldmark.extensions.passthrough]
+    #     enable = false
+    #     [[markup.goldmark.extensions.passthrough.delimiters.block]]
+    #       delimiter = ["\\[", "\\]"]
+    #     [[markup.goldmark.extensions.passthrough.delimiters.block]]
+    #       delimiter = ["$$", "$$"]
+    #     [[markup.goldmark.extensions.passthrough.delimiters.inline]]
+    #       delimiter = ["\\(", "\\)"]
+
 #   [markup.goldmark]
 #     [markup.goldmark.extensions]
 #       [markup.goldmark.extensions.passthrough]
@@ -59,8 +77,8 @@ theme = 'hugo-flex'
 
 [menu]
   [[menu.main]]
-    name = "About"
-    pageRef = "/about"
+    name = "Home"
+    url = "/"
     weight = 1
   [[menu.main]]
     name = "Posts"
@@ -75,11 +93,16 @@ theme = 'hugo-flex'
     pageRef = "/categories"
     weight = 4
   [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 5
+  [[menu.main]]
     name = "RSS"
     pageRef = "/"
-    weight = 5
+    weight = 6
     [[menu.main.params]]
       format = "rss"
+
 
 [outputFormats]
   [outputFormats.rss]
