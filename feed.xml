@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="https://dr-saad-la.github.io/WebDevTools/xml/base.min.xml" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Development Tools Blog</title>
+    <link>https://dr-saad-la.github.io/WebDevTools/</link>
+    <description>Recent content on Web Development Tools Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link rel="self" href="https://dr-saad-la.github.io/WebDevTools/feed.xml" type="application/rss+xml" />
+  </channel>
+</rss>
