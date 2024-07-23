@@ -6,9 +6,15 @@ Web Development Tools repository is a repository that aims to provide a comprehe
 
 1. [Introduction](#introduction)
 2. [Static Site Generators](#static-site-generators)
+   - [Pelican](#pelican)
    - [Hugo](#hugo)
    - [Jekyll](#jekyll)
+   - [Zola](#Zola)
    - [Gatsby](#gatsby)
+   - [MkDocs](#mkdocs)
+   - [Sapper](#sapper)
+   - [Docusaurus](#docusaurus)
+   - [GitBook](#gitbook)
 3. [Other Tools and Technologies](#other-tools-and-technologies)
    - [Markdown](#markdown)
    - [CSS Frameworks](#css-frameworks)
@@ -89,7 +95,6 @@ To create a new site with Zola, download the binary and create your site:
 ```sh
 zola init my-new-site
 ```
-
 
 ### Gatsby
 
