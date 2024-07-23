@@ -1,4 +1,87 @@
-baseURL = 'www.example.com'
+baseURL = 'https://dr-saad-la.github.io/WebDevTools/'
 languageCode = 'en-us'
 title = 'Web Development Tools Blog'
 theme = 'hugo-flex'
+
+[params]
+  color = "teal"
+  width = "42rem"
+  divider = "\u2500\u2500"
+  footer = """
+  Except where otherwise noted, content on this site is licensed under a &#32;
+  <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative
+  Commons Attribution 4.0 International License</a>.
+  """
+  rss = "To subscribe to this RSS feed, copy its address and paste it into your favorite feed reader."
+  favicon = false
+  noClasses = false
+  katex = "0.16.10"
+  headingoffset = 0
+  linkicons = false
+  summaries = false
+  schema = false
+  opengraph = false
+  twittercards = false
+
+  [params.utterances]
+    repo = ""
+    issueterm = ""
+    theme = ""
+
+  [params.netlify]
+    honeypot = false
+    recaptcha = false
+
+  math = false
+
+  [[params.mathdelim.block]]
+    delimiter = ["\\[", "\\]"]
+  [[params.mathdelim.block]]
+    delimiter = ["$$", "$$"]
+  
+  [[params.mathdelim.inline]]
+    delimiter = ["\\(", "\\)"]
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+
+#   [markup.goldmark]
+#     [markup.goldmark.extensions]
+#       [markup.goldmark.extensions.passthrough]
+#         enable = false
+#         [[markup.goldmark.extensions.passthrough.delimiters.block]]
+#           delimiter = ["\\[", "\\]"]
+#         [[markup.goldmark.extensions.passthrough.delimiters.block]]
+#           delimiter = ["$$", "$$"]
+#         [[markup.goldmark.extensions.passthrough.delimiters.inline]]
+#           delimiter = ["\\(", "\\)"]
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 1
+  [[menu.main]]
+    name = "Posts"
+    pageRef = "/post"
+    weight = 2
+  [[menu.main]]
+    name = "Tags"
+    pageRef = "/tags"
+    weight = 3
+  [[menu.main]]
+    name = "Categories"
+    pageRef = "/categories"
+    weight = 4
+  [[menu.main]]
+    name = "RSS"
+    pageRef = "/"
+    weight = 5
+    [[menu.main.params]]
+      format = "rss"
+
+[outputFormats]
+  [outputFormats.rss]
+    mediatype = "application/rss+xml"
+    baseName = "feed"
